@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @Builder
-public class Event {
+public class Event extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,5 +30,6 @@ public class Event {
 
     @Column(columnDefinition = "TEXT NULL")
     private String description;
+
 
 }
