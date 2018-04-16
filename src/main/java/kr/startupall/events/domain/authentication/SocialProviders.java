@@ -1,4 +1,4 @@
-package kr.startupall.events.domain;
+package kr.startupall.events.domain.authentication;
 
 public enum SocialProviders {
 

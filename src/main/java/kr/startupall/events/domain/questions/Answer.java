@@ -19,7 +19,7 @@ public class Answer {
     @Column(name = "ANSWER_ID")
     private long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "QUESTION_ID")
     private Question question;
 

@@ -1,8 +1,10 @@
-package kr.startupall.events.domain;
+package kr.startupall.events.domain.authentication;
 
+import kr.startupall.events.domain.EventApply;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,6 +34,9 @@ public class Account {
     @Column(name = "SOCIAL_PROVIDER")
     @Enumerated(value = EnumType.STRING)
     private SocialProviders provider;
+
+    @OneToMany(mappedBy = "account")
+    private List<EventApply> applies;
 
 }
 

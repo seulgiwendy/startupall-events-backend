@@ -1,5 +1,6 @@
 package kr.startupall.events.domain
 
+import kr.startupall.events.domain.authentication.Account
 import javax.persistence.*
 
 @Entity

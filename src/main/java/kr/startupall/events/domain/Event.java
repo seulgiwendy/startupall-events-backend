@@ -1,9 +1,12 @@
 package kr.startupall.events.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import kr.startupall.events.domain.questions.Question;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,5 +34,15 @@ public class Event extends BaseEntity {
     @Column(columnDefinition = "TEXT NULL")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "VENUE_ID")
+    private Venue venue;
+
+    @OneToMany(mappedBy = "event")
+    @JsonIgnore
+    private List<EventApply> applies;
+
+    @OneToMany(mappedBy = "event")
+    private List<Question> questions;
 
 }
