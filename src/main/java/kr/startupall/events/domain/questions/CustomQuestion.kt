@@ -1,5 +1,6 @@
-package kr.startupall.events.domain
+package kr.startupall.events.domain.questions
 
+import kr.startupall.events.domain.Event
 import javax.persistence.*
 
 @Entity
