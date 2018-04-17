@@ -1,6 +1,7 @@
 package kr.startupall.events.domain
 
 import kr.startupall.events.domain.authentication.Account
+import kr.startupall.events.domain.questions.Answer
 import javax.persistence.*
 
 @Entity
@@ -17,4 +18,7 @@ data class EventApply(
 
         @field:ManyToOne
         @field:JoinColumn(name = "ACCOUNT_ID")
-        val account: Account? = null)
+        val account: Account? = null,
+
+        @field:OneToMany(mappedBy = "apply")
+        val answers: MutableList<Answer>? = null)
