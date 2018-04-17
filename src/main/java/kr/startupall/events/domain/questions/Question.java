@@ -1,6 +1,8 @@
 package kr.startupall.events.domain.questions;
 
 import kr.startupall.events.domain.Event;
+import kr.startupall.events.domain.EventApply;
+import kr.startupall.events.domain.authentication.Account;
 import lombok.*;
 
 import javax.persistence.*;
@@ -40,4 +42,10 @@ public class Question {
     @OneToMany(mappedBy = "question")
     private List<Answer> answers;
 
+    public void setEvent(Event event) {
+        if(this.event != null) {
+            this.event.getQuestions().remove(this);
+        }
+        this.event = event;
+    }
 }

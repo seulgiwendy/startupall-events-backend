@@ -8,7 +8,7 @@ data class QuestionOption(
         @field:Id
         @field:GeneratedValue
         @field:Column(name = "Q_OPTION_ID")
-        val id: Long,
+        val id: Long = 0,
 
         @field:Column(name = "Q_OPTION_TEXT")
         val text: String,

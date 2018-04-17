@@ -14,9 +14,15 @@ open class BaseEntity {
 
     @field:CreatedDate
     @field:Column(name = "CREATED_TIME")
-    protected var createdDate: LocalDateTime? = null
+    var createdDate: LocalDateTime? = null
 
-    fun getStringCreatedDate(): String {
+    private set(value: LocalDateTime?) {
+        field = value
+    }
+
+    constructor()
+
+    open fun getStringCreatedDate(): String {
         return generateDateString(this.createdDate!!)
     }
 

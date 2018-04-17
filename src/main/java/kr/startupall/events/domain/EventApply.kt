@@ -9,13 +9,12 @@ data class EventApply(
         @field:Id
         @field:GeneratedValue
         @field:Column(name = "APPLY_ID")
-        val id: Long,
+        val id: Long = 0,
 
         @field:ManyToOne
         @field:JoinColumn(name = "EVENT_ID")
-        val event: Event,
+        val event: Event? = null,
 
         @field:ManyToOne
         @field:JoinColumn(name = "ACCOUNT_ID")
-        val account: Account
-)
+        val account: Account? = null)

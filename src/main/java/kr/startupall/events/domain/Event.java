@@ -1,6 +1,7 @@
 package kr.startupall.events.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.common.collect.Lists;
 import kr.startupall.events.domain.questions.Question;
 import lombok.*;
 
@@ -38,11 +39,26 @@ public class Event extends BaseEntity {
     @JoinColumn(name = "VENUE_ID")
     private Venue venue;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<EventApply> applies;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions;
 
+    public void addApplies(EventApply apply) {
+        if(this.applies == null) {
+            this.applies = Lists.newArrayList();
+        }
+        this.applies.add(apply);
+    }
+
+    public void addQuestion(Question question) {
+        if(this.questions == null) {
+            this.questions = Lists.newArrayList();
+        }
+
+        this.questions.add(question);
+        question.setEvent(this);
+    }
 }

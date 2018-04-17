@@ -27,5 +27,6 @@ public class Answer {
     @JoinColumn(name = "APPLY_ID")
     private EventApply apply;
 
+    private String answer;
 
 }

@@ -85,7 +85,12 @@
             <version>1.4.196</version>
             <scope>runtime</scope>
         </dependency>
-
+        <!--Google Commons-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>24.0-jre</version>
+        </dependency>
 
         <!--Kotlin Support-->
         <dependency>
@@ -123,6 +128,8 @@
             <configuration>
                 <compilerPlugins>
                     <plugin>spring</plugin>
+                    <plugin>jpa</plugin>
+                    <plugin>all-open</plugin>
                 </compilerPlugins>
                 <jvmTarget>1.8</jvmTarget>
             </configuration>
